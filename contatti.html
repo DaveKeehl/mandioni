@@ -46,14 +46,14 @@
 		</div>
 		<div class="contact-form">
 			<h2>Contatti</h2>
-			<form>
+			<form action="https://formspree.io/myyernzl" method="POST">
 				<div class="form-group">
 					<label for="nome-cognome">Nome e cognome*</label>
-					<input id="nome-cognome" type="text" required>
+					<input id="nome-cognome" type="text" name="name" placeholder="Mario Rossi" required>
 				</div>
 				<div class="form-group">
 					<label for="email">La vostra email*</label>
-					<input id="email" type="text" required>
+					<input id="email" type="text" name="_replyto" required>
 				</div>
 				<div class="form-group">
 					<label for="soggetto">Soggetto</label>
@@ -61,9 +61,9 @@
 				</div>
 				<div class="form-group">
 					<label for="messaggio">Messaggio*</label>
-					<textarea id="messaggio" type="text" required></textarea>
+					<textarea id="messaggio" name="message" required></textarea>
 				</div>
-				<input type="submit">
+				<input type="submit" value="Invia">
 			</form>
 		</div>
 	</main>

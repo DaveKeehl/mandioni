@@ -162,7 +162,7 @@ main.has-gallery .grid .gallery img:not(.screen):hover {
 	opacity: 1;
 }
 
-main.has-gallery .grid .gallery div {
+main.has-gallery .grid .gallery > div {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 0.5em;
@@ -320,6 +320,7 @@ main.contatto .info a {
 }
 
 main.contatto > * {
+	font-family: 'Gilda Display', sans-serif;
 	padding: 2rem;
 	border: 1px solid black;
 }
@@ -335,14 +336,43 @@ main.contatto h3 {
 }
 
 main.contatto form .form-group {
+	display: flex;
+	align-items: center;
 	margin-bottom: 20px;
 }
 
-main.contatto label, .contatt textarea {
+main.contatto label {
 	display: inline-block;
-	width: calc((100% - 2em * 2) / 100 * 40);
+	width: 150px
+}
+
+main.contatto textarea {
+	height: 100px;
+	min-height: 100px;
+	max-height: 200px;
+}
+
+main.contatto input:not([type="submit"]), main.contatto textarea {
+	height: 30px;
+	border-radius: 3px;
+	width: 250px;
+	max-width: 250px;
+	min-width: 250px;
+	border: 1px solid gainsboro;
+	padding: 7px;
 }
 
 main.contatto input[type="submit"] {
 	margin-top: 1em;
+	width: 400px;
+	border: 0;
+	padding: 7px;
+	color: white;
+	background-color: black;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+main.contatto input[type="submit"]:hover {
+	cursor: pointer;
 }
