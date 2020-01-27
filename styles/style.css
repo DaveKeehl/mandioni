@@ -40,6 +40,7 @@ h2 {
 .page-content {
 	position: absolute;
 	top: 0;
+	width: 100%;
 	transform: translateX(-75%);
 	transition: all .5s;
 }
