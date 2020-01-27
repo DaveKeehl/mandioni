@@ -260,7 +260,7 @@ main.has-gallery .grid .gallery .screen .previous {
 	left: 20px;
 }
 
-main.has-gallery .grid .gallery .screen .previous::after {
+main.has-gallery .grid .gallery .screen img:nth-child(1)::after {
 	content: '';
 	top: 0;
 	left: 0;

@@ -1,6 +1,7 @@
 let body = document.querySelector("body");
 let pageContent = document.querySelector(".page-content");
 let mobileMenu = document.querySelector(".mobile-menu");
+let mobileMenuList = document.querySelector(".mobile-menu ul");
 let menuButton = document.querySelector("header button");
 let closeButton = document.querySelector(".mobile-menu .close");
 
