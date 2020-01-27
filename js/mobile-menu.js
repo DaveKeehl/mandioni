@@ -2,11 +2,18 @@ let body = document.querySelector("body");
 let pageContent = document.querySelector(".page-content");
 let mobileMenu = document.querySelector(".mobile-menu");
 let menuButton = document.querySelector("header button");
+let closeButton = document.querySelector(".mobile-menu .close");
 
 let isOpen = false;
 
 menuButton.addEventListener("click", (e) => {
 	(isOpen === false) ? openMenu() : closeMenu();
+	toggleState();
+	console.log(isOpen);
+});
+
+closeButton.addEventListener("click", () => {
+	closeMenu();
 	toggleState();
 	console.log(isOpen);
 });
