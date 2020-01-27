@@ -17,6 +17,7 @@ a {
 }
 
 h1 {
+	text-align: center;
 	font-size: 3.125rem;
 	padding: 3.125rem 0;
 }
@@ -24,34 +25,6 @@ h1 {
 h2 {
 	font-family: 'Lato', sans-serif;
 	font-size: 2.5rem;
-}
-
-.to-top {
-	font-family: 'Lato', sans-serif;
-	position: fixed;
-	bottom: 10px;
-	right: 10px;
-	background-color: rgba(0, 0, 0, .7);
-	color: white;
-	height: 80px;
-	width: 80px;
-	border-radius: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	visibility: hidden;
-	transition: all .2s;
-}
-
-.to-top:hover {
-	cursor: pointer;
-	background-color: rgba(0, 0, 0, .9);
-}
-
-.to-top p {
-	font-size: 14px;
-	line-height: 16px;
 }
 
 .top-info {
@@ -64,7 +37,19 @@ h2 {
 	color: red;
 }
 
+.page-content {
+	position: absolute;
+	top: 0;
+	transform: translateX(-75%);
+	transition: all .2s;
+}
+
+.page-content.menu-closed {
+	transform: translateX(0);
+}
+
 header {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -73,6 +58,7 @@ header {
 	background-size: cover;
 	font-family: 'Lato', sans-serif;
 	color: white;
+	padding: 0 50px;
 }
 
 header nav {
@@ -86,6 +72,52 @@ header nav a:not(:last-child) {
 
 header nav a.current-page {
 	color: black;
+}
+
+header button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	border: 0;
+	background: none;
+	padding: 0;
+}
+
+header button span {
+	display: block;
+	height: 3px;
+	width: 30px;
+	background-color: white;
+	margin-bottom: 5px;
+}
+
+header button span:last-child {
+	margin-bottom: 0;
+}
+
+.mobile-menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: calc(75% + 1px);
+	background-color: black;
+	color: whitesmoke;
+	transition: all .2s;
+}
+
+.mobile-menu ul {
+	font-family: 'Lato', sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+	text-transform: uppercase;
+}
+
+.mobile-menu.menu-closed {
+	transform: translateX(100%);
 }
 
 main {
@@ -125,7 +157,7 @@ footer img {
 main.has-gallery .grid {
 	display: grid;
 	grid-template-columns: 1fr 1.5fr;
-	grid-column-gap: 2em;
+	gap: 2em;
 	grid-template-areas: "about gallery";
 }
 
@@ -165,7 +197,7 @@ main.has-gallery .grid .gallery img:not(.screen):hover {
 main.has-gallery .grid .gallery > div {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-gap: 0.5em;
+	gap: 0.5em;
 }
 
 .selected {
@@ -179,8 +211,7 @@ main.index .grid {
 	justify-content: center;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
-	grid-column-gap: 1em;
-	grid-row-gap: 1em;
+	gap: 1em;
 	grid-template-areas: 
 		" about edilizia riattazione"
 		" about genio forestale";
@@ -277,9 +308,9 @@ main.index .grid .forestale {
 
 /********** GENIO CIVILE **********/
 
-main.genio-civile .about p:nth-child(2) {
+/* main.genio-civile .about p:nth-child(2) {
 	margin-bottom: 1em;
-}
+} */
 
 main.genio-civile ul {
 	list-style: disc;
@@ -291,7 +322,7 @@ main.genio-civile ul {
 main.contatto {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-column-gap: 1em;
+	gap: 1em;
 	justify-content: center;
 }
 
@@ -375,4 +406,60 @@ main.contatto input[type="submit"] {
 
 main.contatto input[type="submit"]:hover {
 	cursor: pointer;
+}
+
+/********** MEDIAQUERIES **********/
+
+@media screen and (max-width: 767px) {
+	header nav {
+		display: none;
+	}
+	main.index .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(5, 1fr);
+		grid-template-areas: 
+			"about"
+			"edilizia"
+			"riattazione"
+			"genio"
+			"forestale"
+		;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	.top-info {
+		display: none;
+	}
+	main.index .grid .edilizia::after, 
+	main.index .grid .riattazione::after, 
+	main.index .grid .genio::after, 
+	main.index .grid .forestale::after {
+		top: 50%;
+	}
+	main.has-gallery .grid {
+		grid-template-columns: 1fr;
+		grid-template-areas: "about" "gallery";
+	}
+	main.contatto {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	header button {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+	main.index .grid {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-areas: 
+			"about about"
+			"edilizia riattazione"
+			"genio forestale"
+		;
+	}
 }
