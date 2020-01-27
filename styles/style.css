@@ -507,6 +507,12 @@ main.contatto input[type="submit"]:hover {
 
 /********** MEDIAQUERIES **********/
 
+@media screen and (max-width: 425px) {
+	a.logo {
+		font-size: 40px;
+	}
+}
+
 @media screen and (max-width: 767px) {
 	header nav {
 		display: none;
