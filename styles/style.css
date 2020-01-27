@@ -1,8 +1,6 @@
 /********** FONTS **********/
 
-/* font-family: 'Gilda Display', serif;
-font-family: 'Lato', sans-serif; */
-@import url('https://fonts.googleapis.com/css?family=Gilda+Display|Lato:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gilda+Display|Lato:300,400,700&display=swap');
 
 /*********** GENERAL **********/
 
@@ -18,19 +16,15 @@ a {
 	text-decoration: none;
 }
 
-h1 {
+a.logo {
+	text-align: center;
 	font-size: 3.125rem;
-	padding: 3.125rem 0;
+	margin: 3.125rem 0;
 }
 
 h2 {
-	font-size: 2.5rem;
-}
-
-h3 {
 	font-family: 'Lato', sans-serif;
-	font-size: 0.75rem;
-	color: #d3ad89;
+	font-size: 2.5rem;
 }
 
 .top-info {
@@ -43,7 +37,19 @@ h3 {
 	color: red;
 }
 
+.page-content {
+	position: absolute;
+	top: 0;
+	transform: translateX(-75%);
+	transition: all .5s;
+}
+
+.page-content.menu-closed {
+	transform: translateX(0);
+}
+
 header {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -52,6 +58,7 @@ header {
 	background-size: cover;
 	font-family: 'Lato', sans-serif;
 	color: white;
+	padding: 0 50px;
 }
 
 header nav {
@@ -67,6 +74,114 @@ header nav a.current-page {
 	color: black;
 }
 
+header button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	border: 0;
+	background: none;
+	padding: 0;
+}
+
+header button:hover {
+	cursor: pointer;
+}
+
+header button span {
+	display: block;
+	height: 3px;
+	width: 30px;
+	background-color: white;
+	margin-bottom: 5px;
+}
+
+header button span:last-child {
+	margin-bottom: 0;
+}
+
+.mobile-menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: calc(75% + 1px);
+	background-color: black;
+	color: whitesmoke;
+	transition: all .5s;
+}
+
+.mobile-menu ul {
+	font-family: 'Lato', sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	text-transform: uppercase;
+}
+
+.mobile-menu ul li {
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    background-color: #0c0c0c;
+    margin-bottom: 5px;
+}
+
+.mobile-menu ul li a {
+	display: block;
+    padding: 20px;
+}
+
+.mobile-menu ul li a.current-page {
+	color: #ff2d2d;
+}
+
+.mobile-menu.menu-closed {
+	transform: translateX(100%);
+}
+
+.mobile-menu .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 0;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 22px;
+    width: 20px;
+    padding: 0;
+}
+
+.mobile-menu .close:hover {
+	cursor: pointer;
+}
+
+.mobile-menu .close span {
+	display: block;
+    position: absolute;
+    height: 3px;
+    width: 20px;
+    background-color: white;
+    top: 10px;
+    right: 0px;
+}
+
+.mobile-menu .close span:nth-child(1) {
+	transform: rotate(-45deg);
+}
+
+.mobile-menu .close span:nth-child(2) {
+	transform: rotate(45deg);
+}
+
+main {
+	width: 80%;
+	margin: 3.125rem auto;
+}
+
 footer {
 	font-family: 'Lato', Helvetica, Arial, sans-serif;
 	background-color: #191919;
@@ -74,14 +189,14 @@ footer {
 	text-align: center;
 	font-size: 0.75rem;
 	letter-spacing: 1px;
-	padding: 3.125rem 0;
+	padding: 3.125rem;
 }
 
 footer p {
 	font-weight: 300;
 }
 
-footer span {
+footer p:first-child span {
 	font-weight: 700;
 }
 
@@ -89,59 +204,352 @@ footer .copyright {
 	margin-top: 0.625rem;
 }
 
-/********** INDEX **********/
-
-.index .grid {
-	width: 80%;
-	margin: 3.125rem auto;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-column-gap: 1em;
-	grid-row-gap: 1em;
-	grid-template-areas: 
-		" about edilizia riattazione"
-		" about genio forestale";
+footer img {
+	height: 4.5rem;
+	margin-top: 1.2rem;
 }
 
-.index .grid img {
+/********** GALLERY **********/
+
+main.has-gallery .grid {
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	gap: 2em;
+	grid-template-areas: "about gallery";
+}
+
+main.has-gallery .grid img {
 	width: 100%;
 }
 
-.index .grid .about {
+main.has-gallery .grid .about {
 	grid-area: about;
 	font-family: 'Gilda Display', serif;
 	line-height: 1.5rem;
 }
 
-.index .grid .about h2 {
-	margin-bottom: 1.2rem;
+main.has-gallery .grid .about h2 {
+	margin-bottom: 2rem;
 }
 
-.index .grid .edilizia {
+main.has-gallery .grid .gallery {
+	grid-area: gallery;
+}
+
+main.has-gallery .grid .gallery .screen {
+	position: relative;
+	margin-bottom: 1em;
+}
+
+main.has-gallery .grid .gallery .screen .previous,
+main.has-gallery .grid .gallery .screen .next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 40px;
+	width: auto;
+	filter: invert(1) drop-shadow(0px 0px 10px black);
+}
+
+main.has-gallery .grid .gallery .screen .previous:hover,
+main.has-gallery .grid .gallery .screen .next:hover {
+	cursor: pointer;
+}
+
+main.has-gallery .grid .gallery .screen .previous {
+	left: 20px;
+}
+
+main.has-gallery .grid .gallery .screen img:nth-child(1)::after {
+	content: '';
+	top: 0;
+	left: 0;
+	background-color: white;
+	height: 100%;
+	width: 50px;
+}
+
+main.has-gallery .grid .gallery .screen .next {
+	right: 20px;
+}
+
+main.has-gallery .grid .gallery .photos img {
+	border-radius: 5px;
+	opacity: .5;
+	transition: all .2s;
+}
+
+main.has-gallery .grid .gallery .photos img:hover {
+	cursor: pointer;
+	opacity: 1;
+}
+
+main.has-gallery .grid .gallery .photos {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	gap: 0.5em;
+}
+
+.selected {
+	opacity: 1 !important;
+}
+
+/********** INDEX **********/
+
+main.index .grid {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 1em;
+	grid-template-areas: 
+		" about edilizia riattazione"
+		" about genio forestale";
+}
+
+main.index .grid img {
+	width: 100%;
+}
+
+main.index .grid .about {
+	grid-area: about;
+	font-family: 'Gilda Display', serif;
+	line-height: 1.5rem;
+}
+
+main.index .grid .about h2 {
+	margin-bottom: 2rem;
+}
+
+main.index .grid > *:not(.about) {
+	position: relative;
+	overflow: hidden;
+}
+
+main.index .grid .edilizia::after,
+main.index .grid .riattazione::after,
+main.index .grid .genio::after,
+main.index .grid .forestale::after {
+	font-family: 'Lato', sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	top: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, .5);
+	color: white;
+	transition: all .3s cubic-bezier(0.46, 0.03, 0.38, 1.03);
+}
+
+main.index .grid .edilizia:hover::after,
+main.index .grid .riattazione:hover::after,
+main.index .grid .genio:hover::after,
+main.index .grid .forestale:hover::after {
+	top: 50%;
+}
+
+main.index .grid .edilizia::after {
+	content: 'EDILIZIA';
+}
+
+main.index .grid .riattazione::after {
+	content: 'RIATTAZIONE';
+}
+
+main.index .grid .genio::after {
+	content: 'GENIO CIVILE';
+}
+
+main.index .grid .forestale::after {
+	content: 'FORESTALE';
+}
+
+main.index .grid .edilizia {
 	grid-area: edilizia;
 	background-image: url(../img/index_edilizia.jpg);
 	background-size: cover;
 }
 
-.index .grid .riattazione {
+main.index .grid .riattazione {
 	grid-area: riattazione;
 	background-image: url(../img/index_riattazione.jpeg);
 	background-size: cover;
 }
 
-.index .grid .genio {
+main.index .grid .genio {
 	grid-area: genio;
 	background-image: url(../img/index_genio.jpg);
 	background-size: cover;
 }
 
-.index .grid .forestale {
+main.index .grid .forestale {
 	grid-area: forestale;
 	background-image: url(../img/index_forestale.jpg);
 	background-size: cover;
 }
 
-.index .banner {
+.banner {
 	width: 100%;
+}
+
+/********** GENIO CIVILE **********/
+
+/* main.genio-civile .about p:nth-child(2) {
+	margin-bottom: 1em;
+} */
+
+main.genio-civile ul {
+	list-style: disc;
+	list-style-position: inside;
+}
+
+/********** CONTATTO **********/
+
+main.contatto {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1em;
+	justify-content: center;
+}
+
+main.contatto .info {
+	font-family: 'Lato', sans-serif;
+}
+
+main.contatto .info .apprendisti {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+
+main.contatto .info .apprendisti img {
+	height: 30px;
+	margin-right: 10px;
+}
+
+main.contatto .info p {
+	font-family: 'Gilda Display', sans-serif;
+	line-height: 20px;
+}
+
+main.contatto .info a {
+	color: red;
+}
+
+main.contatto > * {
+	font-family: 'Gilda Display', sans-serif;
+	padding: 2rem;
+	border: 1px solid black;
+}
+
+main.contatto h2 {
+	font-family: 'Lato', sans-serif;
+	margin-bottom: 2rem;
+}
+
+main.contatto h3 {
+	font-size: 26px;
+	margin-bottom: 2rem;
+}
+
+main.contatto form .form-group {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+main.contatto label {
+	display: inline-block;
+	width: 150px
+}
+
+main.contatto textarea {
+	height: 100px;
+	min-height: 100px;
+	max-height: 200px;
+}
+
+main.contatto input:not([type="submit"]), main.contatto textarea {
+	height: 30px;
+	border-radius: 3px;
+	width: 250px;
+	max-width: 250px;
+	min-width: 250px;
+	border: 1px solid gainsboro;
+	padding: 7px;
+}
+
+main.contatto input[type="submit"] {
+	margin-top: 1em;
+	width: 400px;
+	border: 0;
+	padding: 7px;
+	color: white;
+	background-color: black;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+main.contatto input[type="submit"]:hover {
+	cursor: pointer;
+}
+
+/********** MEDIAQUERIES **********/
+
+@media screen and (max-width: 767px) {
+	header nav {
+		display: none;
+	}
+	main.index .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(5, 1fr);
+		grid-template-areas: 
+			"about"
+			"edilizia"
+			"riattazione"
+			"genio"
+			"forestale"
+		;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	.top-info {
+		display: none;
+	}
+	main.index .grid .edilizia::after, 
+	main.index .grid .riattazione::after, 
+	main.index .grid .genio::after, 
+	main.index .grid .forestale::after {
+		top: 50%;
+	}
+	main.has-gallery .grid {
+		grid-template-columns: 1fr;
+		grid-template-areas: "about" "gallery";
+	}
+	main.contatto {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	header button {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+	main.index .grid {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-areas: 
+			"about about"
+			"edilizia riattazione"
+			"genio forestale"
+		;
+	}
 }
