@@ -103,6 +103,7 @@ header button span:last-child {
 }
 
 .mobile-menu {
+	opacity: 1;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -110,7 +111,7 @@ header button span:last-child {
 	width: calc(75% + 1px);
 	background-color: black;
 	color: whitesmoke;
-	transition: all .5s;
+	transition: transform .5s;
 }
 
 .mobile-menu ul {
@@ -142,6 +143,10 @@ header button span:last-child {
 
 .mobile-menu.menu-closed {
 	transform: translateX(calc(100% + 1px));
+}
+
+.mobile-menu.is-hidden {
+	opacity: 0;
 }
 
 .close {
