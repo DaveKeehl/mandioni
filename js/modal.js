@@ -1,6 +1,6 @@
 // let body = document.querySelector("body");
 let modal = document.querySelector(".modal");
-let screen = document.querySelector(".modal .content .preview div .screen");
+let screen = document.querySelector(".modal .content .preview .screen");
 let description = document.querySelector(".modal .description");
 let previousButton = document.querySelector(".modal .previous");
 let nextButton = document.querySelector(".modal .next");
@@ -18,20 +18,38 @@ for (let i = 0; i < images.length; i++) {
 			modal.classList.remove('is-hidden');
 		}, 0);
 		screen.src = e.target.src;
-		description.innerHTML = e.target.dataset.description;
+		if (e.target.alt !== "") {
+			description.classList.remove('is-hidden');
+			description.innerHTML = e.target.alt;
+			screen.alt = e.target.alt;
+		} else {
+			description.classList.add('is-hidden');
+		}
 	});
 }
 
 previousButton.addEventListener("click", () => {
 	(currentId === 0) ? (currentId = images.length - 1) : (currentId = currentId - 1);
 	screen.src = images[currentId].src;
-	description.innerHTML = images[currentId].dataset.description;
+	if (images[currentId].alt !== "") {
+		description.classList.remove('is-hidden');
+		description.innerHTML = images[currentId].alt;
+		screen.alt = images[currentId].alt;
+	} else {
+		description.classList.add('is-hidden');
+	}
 });
 
 nextButton.addEventListener("click", () => {
 	(currentId === images.length - 1) ? (currentId = 0) : (currentId = currentId + 1);
 	screen.src = images[currentId].src;
-	description.innerHTML = images[currentId].dataset.description;
+	if (images[currentId].alt !== "") {
+		description.classList.remove('is-hidden');
+		description.innerHTML = images[currentId].alt;
+		screen.alt = images[currentId].alt;
+	} else {
+		description.classList.add('is-hidden');
+	}
 });
 
 closeModal.addEventListener("click", () => {

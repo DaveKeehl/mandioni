@@ -20,11 +20,13 @@ a.logo {
 	text-align: center;
 	font-size: 3.125rem;
 	margin: 3.125rem 0;
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
 }
 
 h2 {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
 	font-size: 2.5rem;
+	color: #6D6D68;
 }
 
 .top-info {
@@ -139,7 +141,7 @@ header button span:last-child {
 }
 
 .mobile-menu.menu-closed {
-	transform: translateX(100%);
+	transform: translateX(calc(100% + 1px));
 }
 
 .close {
@@ -274,21 +276,33 @@ main.has-gallery .grid .gallery {
 	opacity: 0;
 }
 
-.modal .content .preview div {
-	transform: scale(.75);
+.modal .content .preview {
+	height: 80vh;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
 }
 
-.modal .content .preview .description {
+.modal .screen {
+	height: 100%;
+}
+
+.modal .description {
 	position: absolute;
-	bottom: 2px;
-	color: antiquewhite;
+	bottom: 0;
+	color: white;
 	left: 0;
 	transform: translate(0,0);
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.75);
 	padding: 20px;
-	font-size: 20px;
+	line-height: 20px;
 	font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+
+.modal .description.is-hidden {
+	display: none;
 }
 
 .modal .previous,
@@ -337,8 +351,17 @@ main.index .grid .about {
 	line-height: 1.5rem;
 }
 
+main.index .grid .about h4 {
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+	color: #d3ad89;
+	font-weight: 300;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
 main.index .grid .about h2 {
 	margin-bottom: 2rem;
+	text-align: center;
 }
 
 main.index .grid > *:not(.about) {
@@ -469,6 +492,11 @@ main.contatto .info .apprendisti img {
 	margin-right: 10px;
 }
 
+main.contatto .info .apprendisti p {
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+	color: #6D6D68;
+}
+
 main.contatto .info p {
 	font-family: 'Gilda Display', sans-serif;
 	line-height: 20px;
@@ -481,17 +509,18 @@ main.contatto .info a {
 main.contatto > * {
 	font-family: 'Gilda Display', sans-serif;
 	padding: 2rem;
-	border: 1px solid black;
+	border: 1px solid #d0d0d0;
 }
 
 main.contatto h2 {
-	font-family: 'Lato', sans-serif;
 	margin-bottom: 2rem;
 }
 
 main.contatto h3 {
 	font-size: 26px;
 	margin-bottom: 2rem;
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+	color: #6D6D68;
 }
 
 main.contatto .contact-form {
@@ -578,6 +607,18 @@ main.contatto input[type="submit"]:hover {
 	}
 	main.contatto .info {
 		margin-bottom: 20px;
+	}
+	.modal .content .preview {
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+	.modal .screen {
+		height: auto;
+		width: 100%;
+	}
+	.modal .description {
+		display: none;
 	}
 }
 
