@@ -434,7 +434,7 @@ main.index .grid {
     /* grid-template-rows: 1fr 1fr; */
     /* grid-template-rows: repeat(2,minmax(350px,2fr)); */
     gap: 1em;
-    grid-template-areas: "about test";
+    grid-template-areas: "about pages";
 }
 
 main.index .grid img {
@@ -466,7 +466,7 @@ main.index .grid .about h2 {
 }
 
 main.index .grid .about ~ div {
-	grid-area: test;
+	grid-area: pages;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     /* grid-template-rows: repeat(2,1fr); */
@@ -708,7 +708,7 @@ main.contatto input[type="submit"]:hover {
 		grid-template-columns: 1fr;
 		grid-template-areas: 
 			"about"
-			"test"
+			"pages"
 		;
 	}
 	main.index .grid .about ~ div {
@@ -792,7 +792,7 @@ main.contatto input[type="submit"]:hover {
 		grid-template-columns: 1fr;
 		grid-template-areas: 
 			"about"
-			"test"
+			"pages"
 		;
 	}
 }
