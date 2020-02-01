@@ -1,5 +1,6 @@
 /********** FONTS **********/
 
+@import url('https://fonts.googleapis.com/css?family=Nunito:700,800&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Gilda+Display|Lato:300,400,700&display=swap');
 
 /*********** GENERAL **********/
@@ -19,12 +20,13 @@ a {
 a.logo {
 	text-align: center;
 	font-size: 3.125rem;
+	font-weight: 800;
 	margin: 3.125rem 0;
-	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', 'Nunito', Arial, sans-serif;
 }
 
 h2 {
-	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', 'Nunito', Arial, sans-serif;
 	font-size: 2.5rem;
 	color: #6D6D68;
 }
@@ -187,6 +189,10 @@ header button span:last-child {
 
 main {
 	width: 80%;
+	margin: 50px auto;
+}
+
+main.index {
 	margin: -150px auto 50px auto;
 }
 
@@ -342,7 +348,8 @@ main.has-gallery .grid .gallery img:hover {
 
 main.has-gallery .grid .gallery {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+	/* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
 	gap: 0.5em;
 }
 
@@ -694,7 +701,7 @@ main.contatto input[type="submit"]:hover {
 	.banner img {
 		animation-name: none;
 	}
-	main {
+	main.index {
 		margin: -50px auto 100px auto;
 	}
 	main.index .grid {
