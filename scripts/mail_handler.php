@@ -1,6 +1,6 @@
 <?php
 
-	ini_set('display_errors', 1);
+	// ini_set('display_errors', 1);
 
 	function isInjected($str) {
 		$injections = array('(\n+)', '(\r+)', '(\t+)', '(%0A+)', '(%0D+)', '(%08+)', '(%09+)');
