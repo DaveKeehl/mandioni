@@ -224,9 +224,9 @@ footer img {
 	margin-top: 1.2rem;
 }
 
-/********** OLD GALLERY **********/
+/********** GALLERY **********/
 
-/* main.has-gallery .grid {
+main.has-gallery .grid {
 	display: grid;
 	grid-template-columns: 1fr 1.5fr;
 	gap: 2em;
@@ -307,50 +307,6 @@ main.has-gallery .grid .gallery .photos {
 
 .selected {
 	opacity: 1 !important;
-} */
-
-/********** NEW GALLERY **********/
-
-main.has-gallery .grid {
-	display: grid;
-	grid-template-columns: 1fr 1.5fr;
-	gap: 1em;
-	grid-template-areas: "about gallery";
-}
-
-main.has-gallery .grid img {
-	width: 100%;
-}
-
-main.has-gallery .grid .about {
-	grid-area: about;
-	font-family: 'Gilda Display', serif;
-	line-height: 1.5rem;
-}
-
-main.has-gallery .grid .about h2 {
-	margin-bottom: 2rem;
-}
-
-main.has-gallery .grid .gallery {
-	grid-area: gallery;
-}
-
-main.has-gallery .grid .gallery img {
-	opacity: 1;
-	transition: all .2s;
-}
-
-main.has-gallery .grid .gallery img:hover {
-	cursor: pointer;
-	opacity: .5;
-}
-
-main.has-gallery .grid .gallery {
-	display: grid;
-	grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-	/* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
-	gap: 0.5em;
 }
 
 /********** MODAL **********/
@@ -425,14 +381,53 @@ main.has-gallery .grid .gallery {
 	cursor: pointer;
 }
 
+main.has-modal .grid {
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	gap: 1em;
+	grid-template-areas: "about gallery";
+}
+
+main.has-modal .grid img {
+	width: 100%;
+}
+
+main.has-modal .grid .about {
+	grid-area: about;
+	font-family: 'Gilda Display', serif;
+	line-height: 1.5rem;
+}
+
+main.has-modal .grid .about h2 {
+	margin-bottom: 2rem;
+}
+
+main.has-modal .grid .gallery {
+	grid-area: gallery;
+}
+
+main.has-modal .grid .gallery img {
+	opacity: 1;
+	transition: all .2s;
+}
+
+main.has-modal .grid .gallery img:hover {
+	cursor: pointer;
+	opacity: .5;
+}
+
+main.has-modal .grid .gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+	gap: 0.5em;
+}
+
 /********** INDEX **********/
 
 main.index .grid {
 	display: grid;
     justify-content: center;
     grid-template-columns: 1fr 3fr;
-    /* grid-template-rows: 1fr 1fr; */
-    /* grid-template-rows: repeat(2,minmax(350px,2fr)); */
     gap: 1em;
     grid-template-areas: "about pages";
 }
