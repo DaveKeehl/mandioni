@@ -24,6 +24,7 @@ function toggleState() {
 }
 
 function openMenu() {
+	mobileMenu.classList.remove("is-hidden");
 	body.style.overflow = "hidden";
 	pageContent.classList.remove("menu-closed");
 	mobileMenu.classList.remove("menu-closed");
@@ -33,4 +34,7 @@ function closeMenu() {
 	body.style.overflow = "auto";
 	pageContent.classList.add("menu-closed");
 	mobileMenu.classList.add("menu-closed");
+	setTimeout( () => {
+		mobileMenu.classList.add("is-hidden");
+	}, 500);
 }

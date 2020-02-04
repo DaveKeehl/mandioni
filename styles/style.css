@@ -1,5 +1,6 @@
 /********** FONTS **********/
 
+@import url('https://fonts.googleapis.com/css?family=Nunito:700,800&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Gilda+Display|Lato:300,400,700&display=swap');
 
 /*********** GENERAL **********/
@@ -19,12 +20,15 @@ a {
 a.logo {
 	text-align: center;
 	font-size: 3.125rem;
+	font-weight: 800;
 	margin: 3.125rem 0;
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', 'Nunito', Arial, sans-serif;
 }
 
 h2 {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', 'Nunito', Arial, sans-serif;
 	font-size: 2.5rem;
+	color: #6D6D68;
 }
 
 .top-info {
@@ -101,6 +105,7 @@ header button span:last-child {
 }
 
 .mobile-menu {
+	opacity: 1;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -108,7 +113,7 @@ header button span:last-child {
 	width: calc(75% + 1px);
 	background-color: black;
 	color: whitesmoke;
-	transition: all .5s;
+	transition: transform .5s;
 }
 
 .mobile-menu ul {
@@ -122,16 +127,16 @@ header button span:last-child {
 }
 
 .mobile-menu ul li {
-    width: 100%;
-    text-align: center;
-    font-size: 22px;
-    background-color: #0c0c0c;
-    margin-bottom: 5px;
+	width: 100%;
+	text-align: center;
+	font-size: 22px;
+	background-color: #0c0c0c;
+	margin-bottom: 5px;
 }
 
 .mobile-menu ul li a {
 	display: block;
-    padding: 20px;
+	padding: 20px;
 }
 
 .mobile-menu ul li a.current-page {
@@ -139,48 +144,56 @@ header button span:last-child {
 }
 
 .mobile-menu.menu-closed {
-	transform: translateX(100%);
+	transform: translateX(calc(100% + 1px));
 }
 
-.mobile-menu .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    border: 0;
-    background: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 22px;
-    width: 20px;
-    padding: 0;
+.mobile-menu.is-hidden {
+	opacity: 0;
 }
 
-.mobile-menu .close:hover {
+.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	border: 0;
+	background: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 22px;
+	width: 20px;
+	padding: 0;
+}
+
+.close:hover {
 	cursor: pointer;
 }
 
-.mobile-menu .close span {
+.close span {
 	display: block;
-    position: absolute;
-    height: 3px;
-    width: 20px;
-    background-color: white;
-    top: 10px;
-    right: 0px;
+	position: absolute;
+	height: 3px;
+	width: 20px;
+	background-color: white;
+	top: 10px;
+	right: 0px;
 }
 
-.mobile-menu .close span:nth-child(1) {
+.close span:nth-child(1) {
 	transform: rotate(-45deg);
 }
 
-.mobile-menu .close span:nth-child(2) {
+.close span:nth-child(2) {
 	transform: rotate(45deg);
 }
 
 main {
 	width: 80%;
-	margin: 3.125rem auto;
+	margin: 50px auto;
+}
+
+main.index {
+	margin: -150px auto 50px auto;
 }
 
 footer {
@@ -207,7 +220,7 @@ footer .copyright {
 }
 
 footer img {
-	height: 4.5rem;
+	height: 5rem;
 	margin-top: 1.2rem;
 }
 
@@ -296,17 +309,127 @@ main.has-gallery .grid .gallery .photos {
 	opacity: 1 !important;
 }
 
+/********** MODAL **********/
+
+.modal {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .8);
+	transition: all .5s;
+}
+
+.modal.is-hidden {
+	opacity: 0;
+}
+
+.modal .content .preview {
+	height: 80vh;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.modal .screen {
+	height: 100%;
+}
+
+.modal .description {
+	position: absolute;
+	bottom: 0;
+	color: white;
+	left: 0;
+	transform: translate(0,0);
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+	padding: 20px;
+	line-height: 20px;
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+
+.modal .description.is-hidden {
+	display: none;
+}
+
+.modal .previous,
+.modal .next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 40px;
+	width: auto;
+	filter: invert(1) drop-shadow(0px 0px 10px black);
+}
+
+.modal .previous {
+	left: 20px;
+}
+
+.modal .next {
+	right: 20px;
+}
+
+.modal .previous:hover,
+.modal .next:hover {
+	cursor: pointer;
+}
+
+main.has-modal .grid {
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	gap: 1em;
+	grid-template-areas: "about gallery";
+}
+
+main.has-modal .grid img {
+	width: 100%;
+}
+
+main.has-modal .grid .about {
+	grid-area: about;
+	font-family: 'Gilda Display', serif;
+	line-height: 1.5rem;
+}
+
+main.has-modal .grid .about h2 {
+	margin-bottom: 2rem;
+}
+
+main.has-modal .grid .gallery {
+	grid-area: gallery;
+}
+
+main.has-modal .grid .gallery img {
+	opacity: 1;
+	transition: all .2s;
+}
+
+main.has-modal .grid .gallery img:hover {
+	cursor: pointer;
+	opacity: .5;
+}
+
+main.has-modal .grid .gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+	gap: 0.5em;
+}
+
 /********** INDEX **********/
 
 main.index .grid {
 	display: grid;
-	justify-content: center;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	gap: 1em;
-	grid-template-areas: 
-		" about edilizia riattazione"
-		" about genio forestale";
+    justify-content: center;
+    grid-template-columns: 1fr 3fr;
+    gap: 1em;
+    grid-template-areas: "about pages";
 }
 
 main.index .grid img {
@@ -317,13 +440,40 @@ main.index .grid .about {
 	grid-area: about;
 	font-family: 'Gilda Display', serif;
 	line-height: 1.5rem;
+	padding: 20px;
+	background-color: white;
+	z-index: 2;
+	border: 1px solid #eaeaea;
+	box-shadow: 0 0 10px #0000001f;
+}
+
+main.index .grid .about h4 {
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+	color: #d3ad89;
+	font-weight: 300;
+	text-align: center;
+	margin-bottom: 1rem;
 }
 
 main.index .grid .about h2 {
 	margin-bottom: 2rem;
+	text-align: center;
 }
 
-main.index .grid > *:not(.about) {
+main.index .grid .about ~ div {
+	grid-area: pages;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    /* grid-template-rows: repeat(2,1fr); */
+    grid-template-rows: repeat(2,minmax(350px,2fr));
+    grid-template-areas:
+        "edilizia riattazione"
+        "genio forestale";
+    grid-gap: 1em;
+    margin-top: 170px;
+}
+
+main.index .grid .about ~ div a {
 	position: relative;
 	overflow: hidden;
 }
@@ -342,8 +492,8 @@ main.index .grid .forestale::after {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(0, 0, 0, .5);
-	color: white;
+	background-color: rgba(255, 255, 255, .5);
+	color: black;
 	transition: all .3s cubic-bezier(0.46, 0.03, 0.38, 1.03);
 }
 
@@ -374,6 +524,7 @@ main.index .grid .edilizia {
 	grid-area: edilizia;
 	background-image: url(../img/index_edilizia.jpg);
 	background-size: cover;
+	transition: all .2s;
 }
 
 main.index .grid .riattazione {
@@ -395,7 +546,26 @@ main.index .grid .forestale {
 }
 
 .banner {
+	overflow: hidden;
+}
+
+.banner img {
 	width: 100%;
+	animation-name: banner-animation;
+	animation-duration: 30s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes banner-animation {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 
 /********** GENIO CIVILE **********/
@@ -428,8 +598,13 @@ main.contatto .info .apprendisti {
 }
 
 main.contatto .info .apprendisti img {
-	height: 30px;
+	height: 70px;
 	margin-right: 10px;
+}
+
+main.contatto .info .apprendisti p {
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+	color: #6D6D68;
 }
 
 main.contatto .info p {
@@ -444,17 +619,18 @@ main.contatto .info a {
 main.contatto > * {
 	font-family: 'Gilda Display', sans-serif;
 	padding: 2rem;
-	border: 1px solid black;
+	border: 1px solid #d0d0d0;
 }
 
 main.contatto h2 {
-	font-family: 'Lato', sans-serif;
 	margin-bottom: 2rem;
 }
 
 main.contatto h3 {
 	font-size: 26px;
 	margin-bottom: 2rem;
+	font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+	color: #6D6D68;
 }
 
 main.contatto .contact-form {
@@ -517,16 +693,28 @@ main.contatto input[type="submit"]:hover {
 	header nav {
 		display: none;
 	}
+	.banner img {
+		animation-name: none;
+	}
+	main.index {
+		margin: -50px auto 100px auto;
+	}
 	main.index .grid {
 		grid-template-columns: 1fr;
-		grid-template-rows: repeat(5, 1fr);
 		grid-template-areas: 
 			"about"
-			"edilizia"
-			"riattazione"
-			"genio"
-			"forestale"
+			"pages"
 		;
+	}
+	main.index .grid .about ~ div {
+		margin-top: 0;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(4,minmax(350px,2fr));
+		grid-template-areas:
+		"edilizia"
+		"riattazione"
+		"genio"
+		"forestale";
 	}
 	main.contatto {
 		flex-direction: column;
@@ -538,6 +726,18 @@ main.contatto input[type="submit"]:hover {
 	}
 	main.contatto .info {
 		margin-bottom: 20px;
+	}
+	.modal .content .preview {
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+	.modal .screen {
+		height: auto;
+		width: 100%;
+	}
+	.modal .description {
+		display: none;
 	}
 }
 
@@ -570,6 +770,12 @@ main.contatto input[type="submit"]:hover {
 	}
 }
 
+@media screen and (max-width: 1200px) {
+	main.index .grid .about ~ div {
+		margin-top: 0;
+	}
+}
+
 @media screen and (min-width: 768px) {
 	header button {
 		display: none;
@@ -578,12 +784,16 @@ main.contatto input[type="submit"]:hover {
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
 	main.index .grid {
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: 1fr;
 		grid-template-areas: 
-			"about about"
-			"edilizia riattazione"
-			"genio forestale"
+			"about"
+			"pages"
 		;
+	}
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
+	main.index .grid {
+		grid-template-columns: 1fr 2fr;
 	}
 }

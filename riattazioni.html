@@ -35,7 +35,7 @@
 			</button>
 		</header>
 	
-		<main class="genio-civile has-gallery">
+		<main class="has-modal">
 			<div class="grid">
 				<div class="about">
 					<h2>RIATTAZIONI</h2>
@@ -44,27 +44,20 @@
 					Tutti i lavori vengono svolti secondo le esigenze del committente e nel rispetto degli standard delle normattive.</p>
 				</div>
 				<div class="gallery">
-					<div class="screen">
-						<img src="img/riattazione_1.jpg">
-						<img src="img/previous.svg" class="previous">
-						<img src="img/next.svg" class="next">
-					</div>
-					<div class="photos">
-						<img src="img/riattazione_1.jpg" class="selected">
-						<img src="img/riattazione_2.jpg">
-						<img src="img/riattazione_3.jpg">
-						<img src="img/riattazione_4.jpg">
-						<img src="img/riattazione_5.jpg">
-						<img src="img/riattazione_6.jpg">
-						<img src="img/riattazione_7.jpg">
-						<img src="img/riattazione_8.jpg">
-						<img src="img/riattazione_9.jpg">
-						<img src="img/riattazione_10.jpg">
-						<img src="img/riattazione_11.jpg">
-						<img src="img/riattazione_12.jpg">
-						<img src="img/riattazione_13.jpg">
-						<img src="img/riattazione_14.jpg">
-					</div>
+					<img src="img/riattazione_1.jpg">
+					<img src="img/riattazione_2.jpg">
+					<img src="img/riattazione_3.jpg">
+					<img src="img/riattazione_4.jpg">
+					<img src="img/riattazione_5.jpg">
+					<img src="img/riattazione_6.jpg">
+					<img src="img/riattazione_7.jpg">
+					<img src="img/riattazione_8.jpg">
+					<img src="img/riattazione_9.jpg">
+					<img src="img/riattazione_10.jpg">
+					<img src="img/riattazione_11.jpg">
+					<img src="img/riattazione_12.jpg">
+					<img src="img/riattazione_13.jpg">
+					<img src="img/riattazione_14.jpg">
 				</div>
 			</div>
 	
@@ -93,8 +86,25 @@
 		</ul>
 	</div>
 
+	<div class="modal is-hidden">
+		<div class="content">
+			<div class="preview">
+				<img src="" class="screen" alt="">
+				<div class="desc-container">
+					<p class="description is-hidden"></p>
+				</div>
+			</div>
+		</div>
+		<button class="close">
+			<span></span>
+			<span></span>
+		</button>
+		<img src="img/previous.svg" class="previous">
+		<img src="img/next.svg" class="next">
+	</div>
+
 	<script src="js/copyright.js"></script>
-	<script src="js/gallery.js"></script>
+	<script src="js/modal.js"></script>
 	<script src="js/mobile-menu.js"></script>
 
 </body>
