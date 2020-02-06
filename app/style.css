@@ -9,8 +9,6 @@
 *::before,
 *::after {
 	box-sizing: border-box;
-	-webkit-filter: blur(2px);
-	        filter: blur(2px);
 }
 
 a {

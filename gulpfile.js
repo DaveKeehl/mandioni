@@ -1,15 +1,11 @@
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
-const rename = require("gulp-rename");
 
 function autoprefixerTask() {
 	return gulp
 		.src('./styles/style.css')
 		.pipe(autoprefixer())
-		.pipe(rename(function (path) {
-			path.basename = "app";
-		}))
-		.pipe(gulp.dest('./styles/app'))
+		.pipe(gulp.dest('./app'))
 }
 
 function watchTask() {
