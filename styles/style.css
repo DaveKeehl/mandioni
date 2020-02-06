@@ -681,6 +681,10 @@ main.contatto input[type="submit"]:hover {
 	cursor: pointer;
 }
 
+.gotcha {
+	display: none;
+}
+
 /********** MEDIAQUERIES **********/
 
 @media screen and (max-width: 425px) {

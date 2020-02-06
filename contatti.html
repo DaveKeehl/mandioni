@@ -63,18 +63,19 @@
 						<input id="cognome" type="text" name="surname" required>
 					</div>
 					<div class="form-group">
-						<label for="email">La vostra email*</label>
+						<label for="email">Email*</label>
 						<input id="email" type="text" name="email" required>
 					</div>
 					<div class="form-group">
-						<label for="soggetto">Soggetto</label>
-						<input id="soggetto" type="text" name="subject">
+						<label for="soggetto">Soggetto*</label>
+						<input id="soggetto" type="text" name="subject" required>
 					</div>
 					<div class="form-group">
 						<label for="messaggio">Messaggio*</label>
 						<textarea id="messaggio" name="message" required></textarea>
 					</div>
-					<input type="submit" value="Invia" name="submit">
+					<input type="text" name="gotcha" class="gotcha" value="">
+					<input id="submit" type="submit" value="Invia" name="submit">
 				</form>
 			</div>
 		</main>
@@ -104,6 +105,17 @@
 
 	<script src="js/copyright.js"></script>
 	<script src="js/mobile-menu.js"></script>
+
+	<script>
+	
+	let submitButton = document.getElementById('submit');
+	submitButton.addEventListener('click', (e) => {
+		setTimeout( () => {
+			window.location(contatti.html);
+		},2000);
+	});
+	
+	</script>
 
 </body>
 </html>
