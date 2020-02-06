@@ -427,10 +427,10 @@ main.has-modal .grid .gallery {
 
 main.index .grid {
 	display: grid;
-    justify-content: center;
-    grid-template-columns: 1fr 3fr;
-    gap: 1em;
-    grid-template-areas: "about pages";
+	justify-content: center;
+	grid-template-columns: 1fr 3fr;
+	gap: 1em;
+	grid-template-areas: "about pages";
 }
 
 main.index .grid img {
@@ -438,6 +438,7 @@ main.index .grid img {
 }
 
 main.index .grid .about {
+	position: relative;
 	grid-area: about;
 	font-family: 'Gilda Display', serif;
 	line-height: 1.5rem;
@@ -463,15 +464,14 @@ main.index .grid .about h2 {
 
 main.index .grid .about ~ div {
 	grid-area: pages;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    /* grid-template-rows: repeat(2,1fr); */
-    grid-template-rows: repeat(2,minmax(350px,2fr));
-    grid-template-areas:
-        "edilizia riattazione"
-        "genio forestale";
-    grid-gap: 1em;
-    margin-top: 170px;
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	grid-template-rows: repeat(2,minmax(350px,2fr));
+	grid-template-areas:
+		"edilizia riattazione"
+		"genio forestale";
+	grid-gap: 1em;
+	margin-top: 170px;
 }
 
 main.index .grid .about ~ div a {
