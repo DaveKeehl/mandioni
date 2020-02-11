@@ -18,19 +18,24 @@ function html() {
 
 function css() {
 	return gulp.src('./src/styles/*.css')
-		.pipe(autoprefixer())
 		.pipe(gulp.dest('./dist/styles'))
 }
 
+function cssTask() {
+	return gulp.src('./src/styles/*.css')
+		.pipe(autoprefixer())
+}
+
 function watchTask() {
-	gulp.watch('./src/styles/*.css', css);
+	gulp.watch('./src/styles/*.css', cssTask);
 }
 
 exports.images = images;
 exports.scripts = scripts;
 exports.html = html;
 exports.css = css;
+exports.cssTask = cssTask;
 exports.watchTask = watchTask;
 
 exports.build = gulp.parallel(images, scripts, html, css);
-exports.default = gulp.parallel(css, watchTask);
+exports.default = gulp.parallel(cssTask, watchTask);
