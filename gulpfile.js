@@ -33,4 +33,4 @@ exports.css = css;
 exports.watchTask = watchTask;
 
 exports.build = gulp.parallel(images, scripts, html, css);
-exports.default = gulp.parallel(images, scripts, html, gulp.parallel(css, watchTask));
+exports.default = gulp.parallel(css, watchTask);
