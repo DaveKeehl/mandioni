@@ -5,6 +5,7 @@
 
 /*********** GENERAL **********/
 
+
 *,
 *::before,
 *::after {
@@ -15,6 +16,7 @@ a {
 	color: inherit;
 	text-decoration: none;
 }
+
 
 a.logo {
 	text-align: center;
