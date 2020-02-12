@@ -1,0 +1,6 @@
+# robots.txt for https://www.mandioni-costruzioni.ch
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.mandioni-costruzioni.ch/sitemap.xml

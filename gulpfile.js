@@ -11,6 +11,11 @@ function scripts() {
 		.pipe(gulp.dest('./dist/scripts'))
 }
 
+function seo() {
+	return gulp.src(['./src/robots.txt','./src/sitemap.xml'])
+	.pipe(gulp.dest('./dist'))
+}
+
 function html() {
 	return gulp.src('./src/*.html')
 		.pipe(gulp.dest('./dist'))
@@ -32,10 +37,11 @@ function watchTask() {
 
 exports.images = images;
 exports.scripts = scripts;
+exports.seo = seo;
 exports.html = html;
 exports.css = css;
 exports.cssTask = cssTask;
 exports.watchTask = watchTask;
 
-exports.build = gulp.parallel(images, scripts, html, css);
+exports.build = gulp.parallel(images, scripts, seo, html, css);
 exports.default = gulp.parallel(cssTask, watchTask);
