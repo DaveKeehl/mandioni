@@ -114,7 +114,7 @@
 			echo "Errore nell'invio dell'email.";
 		}
 
-		header( "refresh:2;url=contatti.html" );
+		header( "refresh:2;url=./../../contatti.html" );
 
 	} else {
 		echo "Qualcosa è andato storto.";
