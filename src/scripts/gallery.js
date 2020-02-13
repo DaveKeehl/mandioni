@@ -1,30 +1,32 @@
-let screen = document.querySelector(".screen img");
-let images = document.querySelectorAll(".gallery .photos img");
-let previousButton = document.querySelector(".gallery .previous");
-let nextButton = document.querySelector(".gallery .next");
+// GALLERY
 
-let currentId = 0;
+let galleryScreen = document.querySelector(".gallery .screen img");
+let galleryImages = document.querySelectorAll(".gallery .photos img");
+let galleryBack = document.querySelector(".gallery .previous");
+let galleryNext = document.querySelector(".gallery .next");
 
-previousButton.addEventListener("click", () => {
-	(currentId === 0) ? (currentId = images.length - 1) : (currentId = currentId - 1);
+let galleryId = 0;
+
+galleryBack.addEventListener("click", () => {
+	(galleryId === 0) ? (galleryId = galleryImages.length - 1) : (galleryId = galleryId - 1);
 	removeSelectedClass();
-	images[currentId].classList.add("selected");
-	screen.src = images[currentId].src;
+	galleryImages[galleryId].classList.add("selected");
+	galleryScreen.src = galleryImages[galleryId].src;
 });
 
-nextButton.addEventListener("click", () => {
-	(currentId === images.length - 1) ? (currentId = 0) : (currentId = currentId + 1);
+galleryNext.addEventListener("click", () => {
+	(galleryId === galleryImages.length - 1) ? (galleryId = 0) : (galleryId = galleryId + 1);
 	removeSelectedClass();
-	images[currentId].classList.add("selected");
-	screen.src = images[currentId].src;
+	galleryImages[galleryId].classList.add("selected");
+	galleryScreen.src = galleryImages[galleryId].src;
 });
 
-for (let i = 0; i < images.length; i++) {
-	images[i].addEventListener('click', (e) => {
-		currentId = i;
+for (let i = 0; i < galleryImages.length; i++) {
+	galleryImages[i].addEventListener('click', (e) => {
+		galleryId = i;
 		removeSelectedClass();
 		e.target.classList.add("selected");
-		screen.src = e.target.src;
+		galleryScreen.src = e.target.src;
 	});
 }
 

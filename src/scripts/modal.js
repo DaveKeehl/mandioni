@@ -1,54 +1,55 @@
-// let body = document.querySelector("body");
+// MODAL
+
 let modal = document.querySelector(".modal");
-let screen = document.querySelector(".modal .content .preview .screen");
-let description = document.querySelector(".modal .description");
-let previousButton = document.querySelector(".modal .previous");
-let nextButton = document.querySelector(".modal .next");
-let images = document.querySelectorAll(".gallery img");
+let modalScreen = document.querySelector(".modal .content .preview .screen");
+let modalDescription = document.querySelector(".modal .description");
+let modalBack = document.querySelector(".modal .previous");
+let modalNext = document.querySelector(".modal .next");
+let modalImages = document.querySelectorAll(".gallery img");
 let closeModal = document.querySelector(".modal .close");
 
-let currentId = 0;
+let modalId = 0;
 
-for (let i = 0; i < images.length; i++) {
-	images[i].addEventListener('click', (e) => {
-		currentId = i;
+for (let i = 0; i < modalImages.length; i++) {
+	modalImages[i].addEventListener('click', (e) => {
+		modalId = i;
 		body.style.overflow = 'hidden';
 		modal.style.display = 'flex';
 		setTimeout( () => {
 			modal.classList.remove('is-hidden');
 		}, 0);
-		screen.src = e.target.src;
+		modalScreen.src = e.target.src;
 		if (e.target.alt !== "") {
-			description.classList.remove('is-hidden');
-			description.innerHTML = e.target.alt;
-			screen.alt = e.target.alt;
+			modalDescription.classList.remove('is-hidden');
+			modalDescription.innerHTML = e.target.alt;
+			modalScreen.alt = e.target.alt;
 		} else {
-			description.classList.add('is-hidden');
+			modalDescription.classList.add('is-hidden');
 		}
 	});
 }
 
-previousButton.addEventListener("click", () => {
-	(currentId === 0) ? (currentId = images.length - 1) : (currentId = currentId - 1);
-	screen.src = images[currentId].src;
-	if (images[currentId].alt !== "") {
-		description.classList.remove('is-hidden');
-		description.innerHTML = images[currentId].alt;
-		screen.alt = images[currentId].alt;
+modalBack.addEventListener("click", () => {
+	(modalId === 0) ? (modalId = modalImages.length - 1) : (modalId = modalId - 1);
+	modalScreen.src = modalImages[modalId].src;
+	if (modalImages[modalId].alt !== "") {
+		modalDescription.classList.remove('is-hidden');
+		modalDescription.innerHTML = modalImages[modalId].alt;
+		modalScreen.alt = modalImages[modalId].alt;
 	} else {
-		description.classList.add('is-hidden');
+		modalDescription.classList.add('is-hidden');
 	}
 });
 
-nextButton.addEventListener("click", () => {
-	(currentId === images.length - 1) ? (currentId = 0) : (currentId = currentId + 1);
-	screen.src = images[currentId].src;
-	if (images[currentId].alt !== "") {
-		description.classList.remove('is-hidden');
-		description.innerHTML = images[currentId].alt;
-		screen.alt = images[currentId].alt;
+modalNext.addEventListener("click", () => {
+	(modalId === modalImages.length - 1) ? (modalId = 0) : (modalId = modalId + 1);
+	modalScreen.src = modalImages[modalId].src;
+	if (modalImages[modalId].alt !== "") {
+		modalDescription.classList.remove('is-hidden');
+		modalDescription.innerHTML = modalImages[modalId].alt;
+		modalScreen.alt = modalImages[modalId].alt;
 	} else {
-		description.classList.add('is-hidden');
+		modalDescription.classList.add('is-hidden');
 	}
 });
 

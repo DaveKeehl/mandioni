@@ -1,3 +1,5 @@
+// MOBILE MENU
+
 let body = document.querySelector("body");
 let pageContent = document.querySelector(".page-content");
 let mobileMenu = document.querySelector(".mobile-menu");
