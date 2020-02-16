@@ -12,7 +12,7 @@ const terser = require('gulp-terser');
 
 function imgTask() {
 	return gulp
-		.src('./src/img/*.*')
+		.src('./src/img/**/*.*')
 		.pipe(plumber())
 		.pipe(gulp.dest('./dist/img'))
 }
@@ -115,7 +115,7 @@ function reloadPhp() {
 
 function reloadImages() {
 	return gulp
-		.src('./dist/img/*.*')
+		.src('./dist/img/**/*.*')
 		.pipe(connect.reload())
 }
 

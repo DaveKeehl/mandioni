@@ -184,12 +184,17 @@ header button span:last-child {
 }
 
 main {
-	width: 80%;
+	max-width: 1300px;
 	margin: 50px auto;
+	padding: 0 35px;
 }
 
 main.index {
 	margin: -150px auto 50px auto;
+}
+
+main .about p {
+	text-align: justify;
 }
 
 footer {
@@ -245,13 +250,21 @@ main.has-gallery .grid .about h2 {
 
 main.has-gallery .grid .gallery {
 	grid-area: gallery;
+	border: 1px solid #00000030;
+	padding: 2rem;
 }
 
 main.has-gallery .grid .gallery .screen {
 	position: relative;
 	margin-bottom: 1em;
-	max-height: 500px;
+	height: 450px;
 	overflow: hidden;
+}
+
+main.has-gallery .grid .gallery .screen img:nth-child(1) {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 main.has-gallery .grid .gallery .screen .previous,
@@ -271,15 +284,6 @@ main.has-gallery .grid .gallery .screen .next:hover {
 
 main.has-gallery .grid .gallery .screen .previous {
 	left: 20px;
-}
-
-main.has-gallery .grid .gallery .screen img:nth-child(1)::after {
-	content: '';
-	top: 0;
-	left: 0;
-	background-color: white;
-	height: 100%;
-	width: 50px;
 }
 
 main.has-gallery .grid .gallery .screen .next {
@@ -387,7 +391,7 @@ main.has-gallery .grid .gallery .photos {
 main.has-modal .grid {
 	display: grid;
 	grid-template-columns: 1fr 1.5fr;
-	gap: 1em;
+	gap: 3em;
 	grid-template-areas: "about gallery";
 }
 
@@ -426,7 +430,7 @@ main.has-modal .grid .gallery img:hover {
 
 main.has-modal .grid .gallery {
 	display: grid;
-	grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+	grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
 	gap: 0.5em;
 }
 
@@ -727,6 +731,20 @@ main.contatto input[type="submit"]:hover {
 		"riattazione"
 		"genio"
 		"forestale";
+	}
+	main.has-gallery .grid .gallery {
+		border: 0;
+		padding: 0;
+	}
+	main.has-gallery .grid .gallery .screen {
+		display: none;
+	}
+	main.has-gallery .grid .gallery .photos {
+		grid-template-columns: 1fr;
+	}
+	main.has-gallery .grid .gallery .photos img {
+		border-radius: 0;
+		opacity: 1;
 	}
 	main.contatto {
 		flex-direction: column;

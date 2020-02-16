@@ -100,7 +100,7 @@
 		$message = wordwrap($message, 70, "\r\n");
 
 		// COMPOSE EMAIL
-		$to = "davekeehl@gmail.com";
+		$to = "info@mandioni-costruzioni.ch";
 		$email_subject = "Mandioni Costruzioni: Nuovo Messaggio";
 		$email_body = "Hai appena ricevuto un messaggio da $name $surname:\r\n $message";
 		$headers = 'From: '.$from."\r\n".
