@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.mandioni-costruzioni.ch/</loc>
+  <lastmod>2020-02-11T21:35:44+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://www.mandioni-costruzioni.ch/index.html</loc>
+  <lastmod>2020-02-11T21:35:44+00:00</lastmod>
+  <priority>0.80</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://www.mandioni-costruzioni.ch/edilizia.html</loc>
+  <lastmod>2020-02-11T21:35:44+00:00</lastmod>
+  <priority>0.80</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://www.mandioni-costruzioni.ch/genio-civile.html</loc>
+  <lastmod>2020-02-11T21:35:44+00:00</lastmod>
+  <priority>0.80</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://www.mandioni-costruzioni.ch/forestale.html</loc>
+  <lastmod>2020-02-11T21:35:44+00:00</lastmod>
+  <priority>0.80</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://www.mandioni-costruzioni.ch/riattazioni.html</loc>
+  <lastmod>2020-02-11T21:35:44+00:00</lastmod>
+  <priority>0.80</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://www.mandioni-costruzioni.ch/contatti.html</loc>
+  <lastmod>2020-02-11T21:35:44+00:00</lastmod>
+  <priority>0.80</priority>
+  <changefreq>monthly</changefreq>
+</url>
+
+
+</urlset>

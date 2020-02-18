@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="Pagina di contatto di Mandioni Costruzioni (Prugiasco, Ticino - Svizzera).">
+	<title>Contatti - Mandioni Costruzioni</title>
+	<link href="styles/main.min.css" rel="stylesheet preload" as="style">
+</head>
+<body>
+
+	<div class="page-content menu-closed">
+
+		<div class="top-info">
+			<p>6723 PRUGIASCO - Telefono / Fax 091 871 26 58 - Mobile 079 337 33 50 - E-mail: 
+				<a href="mailto:info@mandioni-costruzioni.ch">info@mandioni-costruzioni.ch</a>
+			</p>
+		</div>
+	
+		<header>
+			<a href="index.html" class="logo">MANDIONI COSTRUZIONI</a>
+			<nav>
+				<a href="index.html">HOME</a>
+				<a href="edilizia.html">EDILIZIA</a>
+				<a href="genio-civile.html">GENIO CIVILE</a>
+				<a href="forestale.html">FORESTALE</a>
+				<a href="riattazioni.html">RIATTAZIONI</a>
+				<a href="contatti.html" class="current-page">CONTATTI</a>			
+			</nav>
+			<button aria-label="menu button">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+		</header>
+	
+		<main class="contatto">
+			<div class="info">
+				<h2>MANDIONI</h2>
+				<h3>impresa generale<br>di costruzioni Sagl<br>6724 Ponto Valentino</h3>
+				<div class="apprendisti">
+					<p>Impresa formatrice di apprendisti</p>
+				</div>
+				<p>
+					Ufficio:<br>
+					6723 Prugiasco<br>
+					Tel./Fax 091 871 26 58<br>
+					Mobile 079 337 33 50<br>
+					Email: <a href="mailto:info@mandioni-costruzioni.ch">info@mandioni-costruzioni.ch</a>
+				</p>
+			</div>
+			<div class="contact-form">
+				<h2>Contatti</h2>
+				<form action="scripts/mail_handler.php" method="POST">
+					<div class="form-group">
+						<label for="nome">Nome*</label>
+						<input id="nome" type="text" name="name" required>
+					</div>
+					<div class="form-group">
+						<label for="cognome">Cognome*</label>
+						<input id="cognome" type="text" name="surname" required>
+					</div>
+					<div class="form-group">
+						<label for="email">Email*</label>
+						<input id="email" type="text" name="email" required>
+					</div>
+					<div class="form-group">
+						<label for="soggetto">Soggetto*</label>
+						<input id="soggetto" type="text" name="subject" required>
+					</div>
+					<div class="form-group">
+						<label for="messaggio">Messaggio*</label>
+						<textarea id="messaggio" name="message" required></textarea>
+					</div>
+					<input type="text" name="gotcha" class="gotcha" value="">
+					<input id="submit" type="submit" value="Invia" name="submit">
+				</form>
+			</div>
+		</main>
+	
+		<footer>
+			<p><span>MANDIONI COSTRUZIONI</span> – IMPRESA GENERALE DI COSTRUZIONI SAGL – 6723 PRUGIASCO - INFO@MANDIONI-COSTRUZIONI.CH</p>
+			<p class="copyright">COPYRIGHT © <span></span> MANDIONI COSTRUZIONI</p>
+			<img src="img/apprendisti.png" alt="apprendisti">
+		</footer>
+
+	</div>
+
+	<div class="mobile-menu menu-closed">
+		<button class="close" aria-label="close menu button">
+			<span></span>
+			<span></span>
+		</button>
+		<ul>
+			<li><a href="index.html">home</a></li>
+			<li><a href="edilizia.html">edilizia</a></li>
+			<li><a href="genio-civile.html">genio civile</a></li>
+			<li><a href="forestale.html">forestale</a></li>
+			<li><a href="riattazioni.html">riattazioni</a></li>
+			<li><a href="contatti.html" class="current-page">contatto</a></li>
+		</ul>
+	</div>
+
+	<script src="scripts/copyright.js"></script>
+	<script src="scripts/mobile-menu.js"></script>
+
+</body>
+</html>
