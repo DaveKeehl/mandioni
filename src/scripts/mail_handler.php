@@ -101,7 +101,7 @@
 
 		// COMPOSE EMAIL
 		$to = "info@mandioni-costruzioni.ch";
-		$email_subject = "Mandioni Costruzioni: Nuovo Messaggio";
+		$email_subject = "Mandioni Costruzioni - Nuovo Messaggio : " . $subject;
 		$email_body = "Hai appena ricevuto un messaggio da $name $surname:\r\n $message";
 		$headers = 'From: '.$from."\r\n".
 		'Reply-To: '.$from."\r\n" .
