@@ -7,6 +7,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 const terser = require('gulp-terser');
+const del = require('del');
 
 // IMG TASK (COPY IMAGES TO DIST)
 
@@ -48,6 +49,12 @@ function seoTask() {
 		])
 		.pipe(plumber())
 		.pipe(gulp.dest('./dist'))
+}
+
+// CLEAN DIST TASK
+
+function cleanDistTask() {
+	return del('./dist')
 }
 
 // HTML TASK (COPY HTML FILE TO DIST)
@@ -127,7 +134,7 @@ function watchTask() {
 	gulp.watch('./src/img/*.*', gulp.series(imgTask,reloadImages));
 }
 
-exports.build = gulp.parallel(imgTask, jsTask, phpTask, seoTask, htmlTask, cssTask);
+exports.build = gulp.parallel(cleanDistTask, imgTask, jsTask, phpTask, seoTask, htmlTask, cssTask);
 exports.dev = gulp.series(exports.build, gulp.parallel(serverTask, watchTask));
 
 exports.default = exports.dev;
