@@ -628,7 +628,8 @@ main.contatto .info a {
 	color: red;
 }
 
-main.contatto > * {
+main.contatto .info,
+main.contatto .contact-form {
 	font-family: 'Gilda Display', sans-serif;
 	padding: 2rem;
 	border: 1px solid #d0d0d0;
@@ -695,6 +696,10 @@ main.contatto input[type="submit"]:hover {
 
 .gotcha {
 	display: none;
+}
+
+main.contatto iframe {
+	width: 100%;
 }
 
 /********** MEDIAQUERIES **********/
