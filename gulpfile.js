@@ -9,16 +9,16 @@ const concat = require('gulp-concat');
 const terser = require('gulp-terser');
 const del = require('del');
 
-// IMG TASK (COPY IMAGES TO DIST)
+// IMG TASK (COPY IMAGES TO public_html)
 
 function imgTask() {
 	return gulp
 		.src('./src/img/**/*.*')
 		.pipe(plumber())
-		.pipe(gulp.dest('./dist/img'))
+		.pipe(gulp.dest('./public_html/img'))
 }
 
-// JS TASK (MINIFY JS, CONCAT JS, SOURCEMAP JS, COPY JS/PHP TO DIST)
+// JS TASK (MINIFY JS, CONCAT JS, SOURCEMAP JS, COPY JS/PHP TO public_html)
 
 function jsTask() {
 	return gulp
@@ -27,19 +27,19 @@ function jsTask() {
 		// .pipe(concat('main.js'))
 		// .pipe(terser())
 		// .pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest('./dist/scripts'))
+		.pipe(gulp.dest('./public_html/scripts'))
 }
 
-// PHP TASK (COPY TO DIST)
+// PHP TASK (COPY TO public_html)
 
 function phpTask() {
 	return gulp
 		.src('./src/scripts/*.php')
 		.pipe(plumber())
-		.pipe(gulp.dest('./dist/scripts'))
+		.pipe(gulp.dest('./public_html/scripts'))
 }
 
-// SEO TASK (COPY FILES TO DIST)
+// SEO TASK (COPY FILES TO public_html)
 
 function seoTask() {
 	return gulp
@@ -48,25 +48,25 @@ function seoTask() {
 			'./src/sitemap.xml'
 		])
 		.pipe(plumber())
-		.pipe(gulp.dest('./dist'))
+		.pipe(gulp.dest('./public_html'))
 }
 
-// CLEAN DIST TASK
+// CLEAN public_html TASK
 
-function cleanDistTask() {
-	return del('./dist')
+function cleanpublic_htmlTask() {
+	return del('./public_html')
 }
 
-// HTML TASK (COPY HTML FILE TO DIST)
+// HTML TASK (COPY HTML FILE TO public_html)
 
 function htmlTask() {
 	return gulp
 		.src('./src/*.html')
 		.pipe(plumber())
-		.pipe(gulp.dest('./dist'))
+		.pipe(gulp.dest('./public_html'))
 }
 
-// CSS TASK (SOURCEMAP, AUTOPREFIXER, MINIFY, RENAME, CONCAT, COPY TO DIST)
+// CSS TASK (SOURCEMAP, AUTOPREFIXER, MINIFY, RENAME, CONCAT, COPY TO public_html)
 
 function cssTask() {
 	return gulp
@@ -82,14 +82,14 @@ function cssTask() {
 		.pipe(rename({suffix: '.min'}))
 		.pipe(concat('main.min.css'))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('./dist/styles'))
+		.pipe(gulp.dest('./public_html/styles'))
 }
 
 // SERVER TASK
 
 function serverTask() {
 	connect.server({
-		root: 'dist',
+		root: 'public_html',
 		livereload: true
 	});
 }
@@ -98,31 +98,31 @@ function serverTask() {
 
 function reloadHtml() {
 	return gulp
-		.src('./dist/*.html')
+		.src('./public_html/*.html')
 		.pipe(connect.reload())
 }
 
 function reloadCss() {
 	return gulp
-		.src('./dist/styles/*.css')
+		.src('./public_html/styles/*.css')
 		.pipe(connect.reload())
 }
 
 function reloadJs() {
 	return gulp
-		.src('./dist/scripts/*.js')
+		.src('./public_html/scripts/*.js')
 		.pipe(connect.reload())
 }
 
 function reloadPhp() {
 	return gulp
-		.src('./dist/scripts/*.php')
+		.src('./public_html/scripts/*.php')
 		.pipe(connect.reload())
 }
 
 function reloadImages() {
 	return gulp
-		.src('./dist/img/**/*.*')
+		.src('./public_html/img/**/*.*')
 		.pipe(connect.reload())
 }
 
@@ -134,7 +134,7 @@ function watchTask() {
 	gulp.watch('./src/img/*.*', gulp.series(imgTask,reloadImages));
 }
 
-exports.build = gulp.parallel(cleanDistTask, imgTask, jsTask, phpTask, seoTask, htmlTask, cssTask);
+exports.build = gulp.parallel(cleanpublic_htmlTask, imgTask, jsTask, phpTask, seoTask, htmlTask, cssTask);
 exports.dev = gulp.series(exports.build, gulp.parallel(serverTask, watchTask));
 
 exports.default = exports.dev;
