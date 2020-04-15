@@ -347,6 +347,7 @@ main.has-gallery .grid .gallery .photos {
 
 .modal .screen {
 	height: 100%;
+	width: inherit;
 }
 
 .modal .description {
