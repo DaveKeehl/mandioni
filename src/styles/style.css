@@ -343,19 +343,15 @@ main.has-gallery .grid .gallery .photos {
 	top: 50%;
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
-	display: grid;
-	place-content: center;
 }
 
 .modal .screen {
-	width: 100%;
-}
-
-.modal .desc-container {
-	position: relative;
+	height: 100%;
+	width: inherit;
 }
 
 .modal .description {
+	text-align: center;
 	position: absolute;
 	bottom: 0;
 	color: white;
